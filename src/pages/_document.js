@@ -60,7 +60,7 @@ export default class MyDocument extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
-          <title>Sergio Estrella - Djkde</title>
+          <title>Blog - Sergio Estrella</title>
           <meta
             property="og:title"
             content="Sergio Estrella's Personal Page - @djkde"
