@@ -1,9 +1,9 @@
-import { Container } from "./LayoutStyles";
+import { Container, MainContent } from "./LayoutStyles";
 
 export const Layout = ({ children }) => {
   return (
     <Container>
-      <main>{children}</main>
+      <MainContent>{children}</MainContent>
     </Container>
   );
 };

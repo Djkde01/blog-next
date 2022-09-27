@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  display: ${(props) => (props.grid ? "grid" : "flex")};
-  flex-direction: ${(props) => (props.row ? "row" : "column")};
   padding: ${(props) => (props.nopadding ? "0" : "32px 48px 0")};
+  grid-column: span 8 / span 8;
   margin: 0 auto;
   max-width: 1040px;
   box-sizing: content-box;
@@ -13,14 +12,13 @@ export const Section = styled.section`
 
   @media ${(props) => props.theme.breakpoints.md} {
     padding: 24px 48px 0;
-    flex-direction: column;
+    grid-column: span 1 / span 1;
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
     padding: ${(props) => (props.nopadding ? "0" : "16px 16px 0")};
 
     width: calc(100vw - 32px);
-    flex-direction: column;
   }
 `;
 
@@ -120,6 +118,22 @@ export const SectionSubText = styled.p`
     line-height: 22px;
   }
 `;
+
+export const AsideContainer = styled.aside`
+  grid-column: span 4 / span 4;
+  @media ${(props) => props.theme.breakpoints.md} {
+    grid-column: span 1 / span 1;
+  }
+`;
+
+export const AsideSection = styled.section`
+  position: sticky;
+  top: 2rem;
+  @media ${(props) => props.theme.breakpoints.md} {
+    position: relative;
+  }
+`;
+
 export const SecondaryBtn = styled.button`
   color: #fff;
   background: none;
