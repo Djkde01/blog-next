@@ -1,6 +1,7 @@
 import moment from "moment";
 import Link from "next/link";
-import { SectionSubText, SectionText } from "../../styles/GlobalComponents";
+import { SectionText } from "../../styles/GlobalComponents";
+import AuthorInfo from "../AuthorInfo/AuthorInfo";
 import {
   FeaturedImage,
   FeaturedImageContainer,
@@ -18,7 +19,7 @@ const Posts = ({ post }) => {
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </PostTitle>
       <SectionText>{post.abstract}</SectionText>
-      <SectionSubText>This is the whole text</SectionSubText>
+      <AuthorInfo author={post.author} />
     </PostCard>
   );
 };
