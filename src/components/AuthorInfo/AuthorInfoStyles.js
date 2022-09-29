@@ -12,11 +12,11 @@ export const AuthorContainer = styled.div`
   }
 `;
 
-export const AuthorPhotoContainer = styled.figure`
+export const AuthorDataContainer = styled.figure`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0px;
+  margin: auto 0.5rem 0px;
   width: auto;
   @media ${(props) => props.theme.breakpoints.md} {
     margin-bottom: 1rem;
@@ -31,7 +31,7 @@ export const AuthorPhoto = styled.img`
   border-radius: 20rem;
 `;
 
-export const AuthorName = styled.p`
+export const AuthorText = styled.p`
   font-size: 14px;
   line-height: 22px;
   letter-spacing: 0.02em;

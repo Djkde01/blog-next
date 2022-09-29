@@ -1,18 +1,24 @@
 import {
   AuthorContainer,
-  AuthorName,
+  AuthorText,
   AuthorPhoto,
-  AuthorPhotoContainer,
+  AuthorDataContainer,
 } from "./AuthorInfoStyles";
+import { AiFillCalendar } from "react-icons/ai";
+import moment from "moment";
 
-const AuthorInfo = ({ author }) => {
+const AuthorInfo = ({ author, dateCreated }) => {
   console.log(author);
   return (
     <AuthorContainer>
-      <AuthorPhotoContainer>
+      <AuthorDataContainer>
         <AuthorPhoto alt={author.name} src={author.photo.url} />
-        <AuthorName>{author.name}</AuthorName>
-      </AuthorPhotoContainer>
+        <AuthorText>{author.name}</AuthorText>
+      </AuthorDataContainer>
+      <AuthorDataContainer>
+        <AiFillCalendar size="1.5rem" />
+        <AuthorText>{moment(dateCreated).format("MMM DD YYYY")}</AuthorText>
+      </AuthorDataContainer>
     </AuthorContainer>
   );
 };
