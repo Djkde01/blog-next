@@ -27,24 +27,20 @@ export const RelatedPostCard = styled.article`
 `;
 
 export const RelatedPostImageContainer = styled.figure`
-  width: 4rem;
+  width: 44px;
   flex: none;
 `;
 export const RelatedPostImage = styled.img`
-  height: 3.5rem;
-  width: 3.5rem;
-  border-radius: 3.5rem;
+  height: 44px;
+  width: 44px;
+  border-radius: 44px;
   vertical-align: middle;
 `;
 export const RelatedPostDetails = styled.span`
   flex-grow: 1;
   margin-left: 1rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 14px;
+  line-height: 22px;
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.75);
-  & a {
-    color: rgba(255, 255, 255, 0.75);
-    font-weight: 700;
-  }
 `;
