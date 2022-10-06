@@ -1,0 +1,32 @@
+on:
+  push:
+    branches:
+      - main
+name: Deploy website on hosting subdomain
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest changes of repository
+        uses: actions/checkout@v2
+
+      - name: Use Node 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Build project
+        run: |
+          npm install
+          npm run build
+
+      - name: Sync files
+        uses: SamKirkLand/FTP-Deploy-Action@4.3.2
+        with:
+          server: ftp.djkde.com
+          port: 21
+          local-dir: ./out/
+          server-dir: ./blog/
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
