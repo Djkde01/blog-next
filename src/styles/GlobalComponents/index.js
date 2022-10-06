@@ -84,6 +84,7 @@ export const SectionSubText = styled.p`
 `;
 
 export const AsideContainer = styled.aside`
+  padding: ${(props) => (props.nopadding ? "0" : "32px 48px 0")};
   grid-column: span 4 / span 4;
   @media ${(props) => props.theme.breakpoints.md} {
     grid-column: span 1 / span 1;
