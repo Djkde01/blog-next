@@ -57,12 +57,18 @@ export const getFeaturedPosts = async () => {
   return result.posts;
 };
 
-export const getSimilarPosts = async () => {
+export const getSimilarPosts = async (slug, categories) => {
   const query = gql`
-    query GetPostDetails($slug: String!, $categories: [String!]){
-      posts(where: { slug_not: $slug, AND { categories_some : {slug_in: $categories}}} last: 3){
+    query GetPostDetails($slug: String!, $categories: [String!]) {
+      posts(
+        where: {
+          slug_not: $slug
+          AND: { categories_some: { slug_in: $categories } }
+        }
+        last: 3
+      ) {
         title
-        featuredImage{
+        featuredImage {
           url
         }
         createdAt
@@ -70,7 +76,7 @@ export const getSimilarPosts = async () => {
       }
     }
   `;
-  const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query, { slug, categories });
 
   return result.posts;
 };
@@ -87,4 +93,38 @@ export const getCategories = async () => {
   const results = await request(graphqlAPI, query);
 
   return results.categories;
+};
+
+export const getPostDetailed = async (slug) => {
+  const query = gql`
+    query getPostDetailed($slug: String!) {
+      post(where: { slug: $slug }) {
+        createdAt
+        slug
+        title
+        abstract
+        content {
+          raw
+        }
+        author {
+          id
+          name
+          description
+          photo {
+            url
+          }
+        }
+        featuredImage {
+          url
+        }
+        categories {
+          title
+          slug
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.post;
 };
